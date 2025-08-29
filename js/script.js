@@ -16,7 +16,7 @@ for (let btn of heartBtns) {
 
 // time functions 
 
-const  data ={
+const data = {
     date: new Date().toLocaleTimeString()
 }
 
@@ -35,13 +35,22 @@ document.getElementById("all-body").addEventListener("click", function (e) {
         console.log(callNumber);
 
 
-        alert("📞 Calling : " + callTitle + " " + callNumber)
+
 
 
         const coinValue = callBtns.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.children[0].children[0].children[1].children[1].children[0];
         console.log(coinValue);
 
         const currentCoin = Number(coinValue.innerText);
+
+        if (currentCoin <= 0) {
+            alert("আপনার পর্যাপ্ত কয়েন নেই  কল করতে কমপক্ষে ২০ কয়েন লাগবে");
+            return;
+        }
+
+
+        alert("📞 Calling : " + callTitle + " " + callNumber)
+
         const newCoin = currentCoin - 20;
 
         coinValue.innerText = newCoin;
@@ -85,12 +94,12 @@ document.getElementById("all-body").addEventListener("click", function (e) {
 const copyBtns = document.querySelectorAll(".copy-btn");
 
 const copyCountElement = document.getElementById("copy-count");
-let copyCount= 0;
+let copyCount = 0;
 
 
-for(const btn of copyBtns){
-    btn.addEventListener("click", function(){
-        
+for (const btn of copyBtns) {
+    btn.addEventListener("click", function () {
+
         const card = btn.parentNode.parentNode
         console.log(card)
 
@@ -98,13 +107,13 @@ for(const btn of copyBtns){
         console.log(copyText)
 
 
-         navigator.clipboard.writeText(copyText)
-             {
-                alert("নম্বর কপি হয়েছে: " + copyText);
+        navigator.clipboard.writeText(copyText)
+        {
+            alert("নম্বর কপি হয়েছে: " + copyText);
 
-                copyCount++;
-                copyCountElement.innerText = copyCount;
-            }
+            copyCount++;
+            copyCountElement.innerText = copyCount;
+        }
 
     })
 }
