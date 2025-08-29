@@ -14,6 +14,12 @@ for (let btn of heartBtns) {
 }
 
 
+// time functions 
+
+const  data ={
+    date: new Date().toLocaleTimeString()
+}
+
 // call buttons functions
 
 
@@ -53,7 +59,7 @@ document.getElementById("all-body").addEventListener("click", function (e) {
                             <p class="text-[#828282]">${callNumber}</p>
                         </div>
                         <div>
-                            <h1>time showing</h1>
+                            <h1>${data.date}</h1>
                         </div>
             </div>
 
